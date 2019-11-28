@@ -21,23 +21,23 @@ basic依赖于base和duilib两个工程。
 |stdafx.cpp         |
 
 ### 代码浏览顺序
-main.cpp
+**main.cpp**
 
-main.cpp中有三个函数：wWinMain()、MainThread::Init()、MainThread::Cleanup()
+main.cpp中有三个函数：`wWinMain()`、`MainThread::Init()`、`MainThread::Cleanup()`
 
-wWinMain()是入口函数，这里创建了主循环MainThread thread，MainThread在main.h中定义，继承自nbase::FrameworkThread，属于base工程。MainThread有个virtual类型的Init()函数，在main.cpp中被重写
+`wWinMain()`是入口函数，这里创建了主循环MainThread thread，MainThread在main.h中定义，继承自`nbase::FrameworkThread`，属于base工程。MainThread有个virtual类型的`Init()`函数，在main.cpp中被重写
 
-MainThread::Init()，Init()函数在执行主线程循环中被调用，该函数加载了资源文件（用于定义窗体的xml等），创建了窗体BasicForm，BasicForm是当前工程创建的窗体类，在base_form.h和base_form.cpp中被定义。
+`MainThread::Init()`，Init()函数在执行主线程循环中被调用，该函数加载了资源文件（用于定义窗体的xml等），创建了窗体BasicForm，BasicForm是当前工程创建的窗体类，在base_form.h和base_form.cpp中被定义。
 
-MainThread::Cleanup()，清理函数
+`MainThread::Cleanup()`，清理函数
 
-main.h
+**main.h**
 
-查看MainThread的详细定义
+MainThread的详细定义
 
-basic_form.h、basic_form.cpp
+**basic_form.h**、**basic_form.cpp**
 
-查看basic_form类的详细定义，下面几行代码是重点：
+basic_form类的详细定义，下面几行代码是重点：
 ```c#
 	/**
 	 * 以下三个接口是必须要覆写的接口，父类会调用这三个接口来构建窗口

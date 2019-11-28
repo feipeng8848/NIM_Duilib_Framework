@@ -27,6 +27,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	return 0;
 }
 
+//Init()在thread.RunOnCurrentThreadWithLoop()中被调用
 void MainThread::Init()
 {
 	nbase::ThreadManager::RegisterThread(kThreadUI);
@@ -39,10 +40,12 @@ void MainThread::Init()
 	ui::GlobalManager::Startup(theme_dir + L"resources\\", ui::CreateControlCallback(), false);
 
 	// 一个仿微信的布局示例
+	// LayoutsForm是本工程创建的window类，继承自duilib 的窗口类 ui::WindowImplBase
+	// ShowCustomWindow是一个static的方法，该方法new出一个window并加载xml文件
 	LayoutsForm::ShowCustomWindow(L"basic_layout", L"layouts", L"wechat.xml");
 
 	// 一个仿登录窗口的布局示例
-	// LayoutsForm::ShowCustomWindow(L"login", L"layouts", L"login.xml");
+	//LayoutsForm::ShowCustomWindow(L"login", L"layouts", L"login.xml");
 }
 
 void MainThread::Cleanup()

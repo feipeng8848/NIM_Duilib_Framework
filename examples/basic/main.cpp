@@ -18,7 +18,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
-	// 创建主线程
+	// 创建主线程，该类型并不属于duilib，属于base
 	MainThread thread;
 
 	// 执行主线程循环
@@ -27,6 +27,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	return 0;
 }
 
+//Init()函数在执行主线程循环中被调用
 void MainThread::Init()
 {
 	nbase::ThreadManager::RegisterThread(kThreadUI);
@@ -49,6 +50,7 @@ void MainThread::Init()
 	ui::GlobalManager::Startup(L"resources\\", ui::CreateControlCallback(), false);
 #endif
 
+	// 这里使用代码直接创建window，在BasicForm类中指定了basic.xml文件作为UI
 	// 创建一个默认带有阴影的居中窗口
 	BasicForm* window = new BasicForm();
 	window->Create(NULL, BasicForm::kClassName.c_str(), WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX, 0);

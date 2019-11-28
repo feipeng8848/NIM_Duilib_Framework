@@ -38,10 +38,10 @@ git clone https://github.com/netease-im/NIM_Duilib_Framework
 
 ## 目录
 
-├─`base` 基础类库  
+├─`base` 基础类库，封装了一些常用操作，比如文件操作，网络等。
 ├─`bin` 各个示例程序输出目录，包含预设的皮肤和语言文件以及 CEF 依赖  
 ├─`docs` duilib 接口的说明文档  
-├─`duilib` duilib 核心代码，依赖 base 但不依赖 shared  
+├─`duilib` duilib 核心代码，依赖 base 但不依赖 shared（当前版本已经移除shared工程，shared工程包含一些工具的封装，如命令行解析、日志、路径处理等）  
 ├─`libs` 静态库编译后的输出目录，包含预设的一些 CEF 组件静态库  
 ├─`examples` 各类示例程序源代码  
 ├─`third_party` 第三方库，目前仅有 cef_control 有依赖  

@@ -40,6 +40,7 @@ void MainForm::InitWindow()
 	m_EditDelete = dynamic_cast<ui::RichEdit*>(FindControl(L"edit_delete"));
 	m_EditChildMargin = dynamic_cast<ui::RichEdit*>(FindControl(L"edit_child_margin"));
 
+	//事件绑定
 	m_pRoot->AttachBubbledEvent(ui::kEventClick, nbase::Bind(&MainForm::OnClicked, this, std::placeholders::_1));
 
 	// 设置提供者

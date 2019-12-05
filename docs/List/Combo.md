@@ -10,6 +10,23 @@
 | dropboxsize | 0,150 | SIZE | 弹出框大小设置 |
 | vscrollbar | false | BOOL | 是否使用竖向滚动条,如(true) |
 
+下面的示例为ComboBox创建列表：
+```c
+	/* Initialize ComboBox data */
+	ui::Combo* combo = dynamic_cast<ui::Combo*>(FindControl(L"combo"));
+	for (auto i = 0; i < 10; i++)
+	{
+		ui::ListContainerElement* element = new ui::ListContainerElement;
+		element->SetClass(L"listitem");
+		element->SetFixedHeight(30);
+		element->SetBkColor(L"white");
+		element->SetTextPadding({ 6,0,6,0 });
+		element->SetText(nbase::StringPrintf(L"Combo element %d", i));
+		combo->Add(element);
+	}
+   ```
+   <img src="./Images/Snipaste_2019-12-05_11-38-32.png"/>
+
 ## 可用接口
 
 | 接口名称 | 用途 |
